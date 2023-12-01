@@ -23,7 +23,7 @@ useState => It is used to share data.
 useEffect => in order to access the local storage =>For the current session only.
 
 {
-const LOCAL_STORAGE_KEY= "contact-key";
+const LOCAL_STORAGE_KEY= "contacts";
 useEffect(()=>{
 localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
 },[contacts])
@@ -49,4 +49,15 @@ removing stored contacts
 }
 
 The one of the basic ways to pass down the data from the child to the parent or from the parent to the child is with the help of props.
+
+In order to use Routing we use->
+import { BrowserRouter  as Router, Switch , Route } from "react-router-dom";
+
+{
+  <Router>
+  Place all the components which has to routed inside this tag.
+  </Router>
+}
+
+*** The documentation have been changed a lot various component elements;
 
