@@ -2,23 +2,17 @@ import { Link } from "react-router-dom";
 import React from "react";
 import ContactCard from "./ContactCard";
 
-const ContactList = (props) => {
-  // console.log(props);
-  // console.log(props.contacts[0]);
-  // It is returning a jsx object and mapping it to each contact list item.
-  // const val = arr.map(logic);
+// console.log(props);
+// console.log(props.contacts[0]);
+// It is returning a jsx object and mapping it to each contact list item.
+// const val = arr.map(logic);
 
+const ContactList = (props) => {
   const deleteContactHandler = (id) => {
     props.getContactId(id);
   };
 
-  const contacts = [
-    {
-      id: "1",
-      name: "dipeshD",
-      email: "none",
-    },
-  ];
+  const contacts = props.contacts;
 
   const renderContactList = contacts.map((contact) => {
     return (
@@ -32,13 +26,11 @@ const ContactList = (props) => {
 
   return (
     // console.log(renderContactList), just logs the jsx (react-element) that is returnd as a value.
-    <div class="main ">
-      <h2>
-        Contact List
-        <Link to="/add">
-        <button class="ui inverted blue right button">Add Contact</button>
-        </Link>
-      </h2>
+    <div className="main">
+      <h2>Contact List</h2>
+      <Link to="/add">
+        <button className="ui inverted blue right button">Add Contact</button>
+      </Link>
       <div className="ui celled list ">{renderContactList}</div>
     </div>
   );

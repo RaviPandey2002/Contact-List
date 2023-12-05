@@ -61,3 +61,8 @@ import { BrowserRouter  as Router, Switch , Route } from "react-router-dom";
 
 *** The documentation have been changed a lot various component elements;
 
+** There are various changes in React-router-dom v4 and v5.
+
+In order to pass the props we have to pass it through the element componet that we have created.
+
+Use of { Link } for routing inside the app with various elements.

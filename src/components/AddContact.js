@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class AddContact extends React.Component {
   state = {
@@ -6,20 +7,24 @@ class AddContact extends React.Component {
     email: "",
   };
 
-  add = (e) =>{
-
+  add = (e) => {
     e.preventDefault();
-    if(this.state.name === "" || this.state.email === "")
+    if (this.state.name === "" || this.state.email === "") {
+      alert("All the Feilds are required feilds");
+      return;
+    }
+    else
     {
-      alert ("All the Feilds are required feilds");      
-      return
+      alert("Your contact has been added sucessfully!!! ");
     }
 
     this.props.addContactHandler(this.state);
-    this.setState({name:"", email:""}); 
-  }
+    this.setState({ name: "", email: "" });
+    console.log(this.props);
+  };
 
   render() {
+    console.log(this.props);
     return (
       <div className="ui main">
         <form className="ui form" onSubmit={this.add}>
@@ -45,8 +50,14 @@ class AddContact extends React.Component {
               onChange={(e) => this.setState({ email: e.target.value })}
             />
           </div>
-          <div>
-            <button className="ui button blue">Add</button>
+          <div className="ui large buttons">
+              <button className="ui blue basic button">Add</button>
+            <div className="or"></div>
+            <Link to="/">
+              <button className="ui red basic button">
+                Back to Contact list
+              </button>
+            </Link>
           </div>
         </form>
       </div>
